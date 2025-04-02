@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Link International - Complete Price List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="price-list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/gold-link-logo.png" alt="Gold Link International Logo" class="logo">
+                <h1>Gold Link International</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sales.html">Sales</a></li>
+                    <li><a href="/price-list.html" class="active">Price List</a></li>
+                    <li><a href="/quotation.html">Quotation</a></li>
+                    <li><a href="/invoice.html">Invoice</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Price List Hero -->
+    <section class="price-list-hero">
+        <div class="container">
+            <h2>Complete Product Price List</h2>
+            <p>Updated monthly with the freshest produce from Thailand</p>
+        </div>
+    </section>
+
+    <!-- Price List Controls -->
+    <section class="price-controls">
+        <div class="container">
+            <div class="controls-grid">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="fruit">Fruits</option>
+                        <option value="vegetable">Vegetables</option>
+                        <option value="mushroom">Mushrooms</option>
+                        <option value="herb">Herbs</option>
+                        <option value="leafy">Leafy Greens</option>
+                        <option value="root">Root Vegetables</option>
+                        <option value="spice">Spices</option>
+                    </select>
+                    <select id="sortBy">
+                        <option value="name-asc">Sort by: Name (A-Z)</option>
+                        <option value="name-desc">Sort by: Name (Z-A)</option>
+                        <option value="price-asc">Sort by: Price (Low-High)</option>
+                        <option value="price-desc">Sort by: Price (High-Low)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="price-list-info">
+                <p><strong>Note:</strong> Prices are in USD and exclusive of freight costs to Maldives</p>
+                <button id="downloadBtn" class="btn"><i class="fas fa-download"></i> Download Full Price List</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price List Table -->
+    <section class="price-list-section">
+        <div class="container">
+            <div class="price-list-container">
+                <table id="priceListTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Item Description</th>
+                            <th>Thai Name</th>
+                            <th>Category</th>
+                            <th>Price (USD)</th>
+                            <th>Unit</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be loaded dynamically from JavaScript -->
+                    </tbody>
+                </table>
+                <div id="loadingIndicator" class="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Loading price list...</p>
+                </div>
+                <div id="noResults" class="no-results">
+                    <i class="fas fa-search"></i>
+                    <p>No products match your search criteria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Order Section -->
+    <section class="bulk-order">
+        <div class="container">
+            <div class="bulk-order-content">
+                <div class="bulk-order-text">
+                    <h3>Need bulk quantities?</h3>
+                    <p>Contact us for special pricing on large orders and regular shipments.</p>
+                    <a href="#contact" class="btn">Request Bulk Quote</a>
+                </div>
+                <div class="bulk-order-image">
+                    <img src="images/bulk-order.jpg" alt="Bulk order delivery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="images/gold-link-logo-white.png" alt="Gold Link International Logo" class="footer-logo">
+                    <p>Gold Link International Co., Ltd. specializes in the export of perishable items and hotel facilities, with a focus on delivering quality products to the Maldives' finest resorts.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="price-list.html">Price List</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Sourcing</a></li>
+                        <li><a href="#">Air Freight</a></li>
+                        <li><a href="#">Sea Freight</a></li>
+                        <li><a href="#">Sales</a></li>
+                        <li><a href="#">Quotation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Gold Link International Co., Ltd. All Rights Reserved.</p>
+                <p class="powered-by">App powered by <strong>Retts Web Dev</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Your Quote Request</h3>
+            <div id="quoteItems">
+                <!-- Items will be added here -->
+            </div>
+            <form id="quoteForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Resort/Company Name" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Additional Notes"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Quote Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Price Modal -->
+    <div id="editPriceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Edit Product Price</h3>
+            <form id="editPriceForm">
+                <input type="hidden" id="editProductId">
+                <div class="form-group">
+                    <label>Product Name:</label>
+                    <span id="editProductName"></span>
+                </div>
+                <div class="form-group">
+                    <label>Current Price:</label>
+                    <span id="editCurrentPrice"></span>
+                </div>
+                <div class="form-group">
+                    <label for="editNewPrice">New Price (USD):</label>
+                    <input type="number" step="0.01" id="editNewPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="editUnit">Unit:</label>
+                    <input type="text" id="editUnit" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Category:</label>
+                    <select id="editCategory" required>
+                        <option value="fruit">Fruits</option>
+                        <option value="vegetable">Vegetables</option>
+                        <option value="mushroom">Mushrooms</option>
+                        <option value="herb">Herbs</option>
+                        <option value="leafy">Leafy Greens</option>
+                        <option value="root">Root Vegetables</option>
+                        <option value="spice">Spices</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="price-list.js"></script>
+</body>
+</html>

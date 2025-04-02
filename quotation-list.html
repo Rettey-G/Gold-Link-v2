@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Link International - Quotation History</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quotation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/Goldlink logo.png" alt="Gold Link International Logo" class="logo">
+                <h1>Gold Link International</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sales</a></li>
+                    <li><a href="price-list.html">Price List</a></li>
+                    <li><a href="quotation.html">New Quotation</a></li>
+                    <li><a href="quotation-list.html" class="active">Quotation History</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quotation List Container -->
+    <div class="quotation-list-container">
+        <div class="quotation-list-header">
+            <h2>Quotation History</h2>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search by resort or quotation number...">
+                <select id="statusFilter">
+                    <option value="">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="quotation-list">
+            <table id="quotationTable">
+                <thead>
+                    <tr>
+                        <th>Quotation #</th>
+                        <th>Date</th>
+                        <th>Resort Name</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Quotations will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="quotation-list.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Link International - Create Quotation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quotation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/Goldlink logo.png" alt="Gold Link International Logo" class="logo">
+                <h1>Gold Link International</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sales.html">Sales</a></li>
+                    <li><a href="/price-list.html">Price List</a></li>
+                    <li><a href="/quotation.html" class="active">Quotation</a></li>
+                    <li><a href="/invoice.html">Invoice</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="quotation-container">
+        <!-- Page Actions -->
+        <div class="page-actions">
+            <button id="newQuotationBtn" class="btn btn-primary" style="display: none;">
+                <i class="fas fa-plus"></i> New Quotation
+            </button>
+        </div>
+
+        <!-- Quotation Form -->
+        <div id="quotationForm">
+            <div class="quotation-header">
+                <h2>Create New Quotation</h2>
+                <div class="quotation-meta">
+                    <div class="quotation-number">
+                        <span>Quotation #:</span>
+                        <strong id="quotationNumber">Loading...</strong>
+                    </div>
+                    <div class="quotation-date">
+                        <span>Date:</span>
+                        <strong id="quotationDate"></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quotation-body">
+                <!-- Left Column - Gold Link Info -->
+                <div class="quotation-column goldlink-info">
+                    <h3>Gold Link International</h3>
+                    <p>5/3 Moo. 10 Khlong Nueng, Khlong Luang</p>
+                    <p>Pathumthani 12110, Thailand</p>
+                    <p>Phone: +66 613935877</p>
+                    <p>Email: sales@goldlink.co.th</p>
+                </div>
+
+                <!-- Right Column - Resort Info -->
+                <div class="quotation-column resort-info">
+                    <h3>To:</h3>
+                    <div class="resort-selector">
+                        <select id="resortSelect">
+                            <option value="">Select Resort</option>
+                            <!-- Options will be loaded from API -->
+                        </select>
+                    </div>
+                    <div id="resortDetails" class="resort-details" style="display: none;">
+                        <div class="detail-row">
+                            <strong>Company:</strong>
+                            <span id="resortCompany"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Address:</strong>
+                            <span id="resortAddress"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Contact Person:</strong>
+                            <span id="resortContactPerson"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Contact:</strong>
+                            <span id="resortContact"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Email:</strong>
+                            <span id="resortEmail"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>Registration No:</strong>
+                            <span id="resortRegNo"></span>
+                        </div>
+                        <div class="detail-row">
+                            <strong>GST No:</strong>
+                            <span id="resortGstNo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotation Items Table -->
+            <div class="quotation-items">
+                <div class="items-header">
+                    <h3>Items</h3>
+                    <button id="addItemBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Item
+                    </button>
+                </div>
+                
+                <table id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Unit Price (USD)</th>
+                            <th>Quantity</th>
+                            <th>Total (USD)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Items will be added here -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-right">Subtotal:</td>
+                            <td id="subtotal">$0.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right">Tax (10%):</td>
+                            <td id="tax">$0.00</td>
+                            <td></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="4" class="text-right">Total:</td>
+                            <td id="total">$0.00</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="quotation-notes">
+                <h3>Notes</h3>
+                <textarea id="quotationNotes" placeholder="Add any additional notes or terms here..."></textarea>
+            </div>
+
+            <!-- Add hidden input for quotation ID -->
+            <input type="hidden" id="quotationId" value="">
+
+            <!-- Action Buttons -->
+            <div class="quotation-actions">
+                <!-- Update save button -->
+                <button id="saveQuotationBtn" class="btn btn-primary" onclick="saveQuotation(false)">
+                    <i class="fas fa-save"></i> Save Quotation
+                </button>
+                <button id="printQuotationBtn" class="btn btn-secondary">
+                    <i class="fas fa-print"></i> Print Preview
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Quotations -->
+        <div id="quotationHistory" class="recent-quotations">
+            <h2>Recent Quotations</h2>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search by resort or quotation number..." class="form-control">
+            </div>
+            <div class="quotation-list">
+                <table id="quotationTable">
+                    <thead>
+                        <tr>
+                            <th>Quotation #</th>
+                            <th>Date</th>
+                            <th>Resort Name</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Quotations will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Add Product to Quotation</h3>
+            
+            <div class="search-box">
+                <input type="text" id="productSearch" placeholder="Search products...">
+                <button id="searchProductBtn" class="btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            
+            <div class="product-list">
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Unit Price (USD)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quantity Modal -->
+    <div id="quantityModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Enter Quantity</h3>
+            
+            <div class="form-group">
+                <label for="productQuantity">Quantity:</label>
+                <input type="number" id="productQuantity" min="1" value="1">
+            </div>
+            
+            <div class="form-group">
+                <label>Unit Price:</label>
+                <span id="productPriceDisplay">$0.00</span>
+            </div>
+            
+            <div class="form-group">
+                <label>Total:</label>
+                <span id="productTotalDisplay">$0.00</span>
+            </div>
+            
+            <button id="confirmAddItemBtn" class="btn btn-primary">Add to Quotation</button>
+        </div>
+    </div>
+
+    <!-- Product Selection Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Product</h2>
+                <span class="close" onclick="document.getElementById('productModal').style.display='none'">&times;</span>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productList">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Quotation Modal -->
+    <div id="viewQuotationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="viewQuotationContent">
+                <!-- Quotation details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="quotation.js"></script>
+</body>
+</html>
